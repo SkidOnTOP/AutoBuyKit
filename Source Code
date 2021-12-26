@@ -1,0 +1,97 @@
+--AutoBuy--
+
+getgenv().AutoBuyDB = false
+getgenv().AutoBuyDBAmmo = false
+getgenv().AutoBuyRevAmmo = false
+getgenv().AutoBuyChicken = false
+getgenv().AutoBuyPizza = false
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Da Hood Kit By GameDimond246810", "Ocean")
+local Tab = Window:NewTab("AutoBuy")
+
+--DB--
+local Section = Tab:NewSection("DB")
+Section:NewButton("Buy DB", "Buys DB", function()
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Double-Barrel SG] - $1400"].Head.CFrame
+ wait(.5)
+ fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Double-Barrel SG] - $1400"].ClickDetector)
+end)
+Section:NewToggle("Buy DB Ammo", "Buys DB Ammo", function(state)
+  if state then
+    getgenv().AutoBuyDBAmmo = true
+    while getgenv().AutoBuyDBAmmo == true do
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["18 [Double-Barrel SG Ammo] - $60"].Head.CFrame
+    wait(.5)
+    fireclickdetector(game:GetService("Workspace").Ignored.Shop["18 [Double-Barrel SG Ammo] - $60"].ClickDetector)
+  end
+  else
+     getgenv().AutoBuyDBAmmo = false
+  end
+end)
+
+--Rev--
+local Section = Tab:NewSection("Rev")
+Section:NewButton("Buy Rev", "Buys Rev", function()
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =CFrame.new (-868.005, -35.5492, -529.42)
+  wait(.5)
+  fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Revolver] - $1300"].ClickDetector)
+end)
+Section:NewToggle("Buy Rev Ammo", "Buys Rev Ammo", function(state)
+  if state then
+    getgenv().AutoBuyRevAmmo = true
+    while getgenv().AutoBuyRevAmmo == true do
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =game:GetService("Workspace").Ignored.Shop["12 [Revolver Ammo] - $75"].Head.CFrame
+    wait(.5)
+    fireclickdetector(game:GetService("Workspace").Ignored.Shop["12 [Revolver Ammo] - $75"].ClickDetector)
+    end
+  else
+    getgenv().AutoBuyRevAmmo = false
+  end
+end)
+
+--Chicken--
+local Section = Tab:NewSection("Chicken")
+Section:NewToggle("Buy Chicken", "Buys Chicken", function(state)
+  if state then
+    getgenv().AutoBuyChicken = true
+    while getgenv().AutoBuyChicken == true do
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Chicken] - $7"].Head.CFrame
+    wait(1)
+   fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Chicken] - $7"].ClickDetector)
+  end
+  else
+   getgenv().AutoBuyChicken = false
+  end
+end)
+
+--Pizza--
+local Section = Tab:NewSection("Pizza")
+Section:NewToggle("Buy Pizza", "Buys Pizza", function(state)
+  if state then
+    getgenv().AutoBuyPizza = true
+    while getgenv().AutoBuyPizza == true do
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored.Shop["[Pizza] - $5"].Head.CFrame
+    wait(1)
+    fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Pizza] - $5"].ClickDetector)
+    end 
+  else
+     getgenv().AutoBuyPizza = false
+  end
+end)
+
+--Teleports--
+local Tab = Window:NewTab("Teleports")
+local Section = Tab:NewSection("Areas")
+Section:NewButton("Bank", "Teleport To Bank", function()
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-437, 39, -284)
+end)
+Section:NewButton("Da Theatre", "ButtonInfo", function()
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1043, 25, -129)
+end)
+
+--Keybinds--
+local Tab = Window:NewTab("Key Binds")
+local Section = Tab:NewSection("Custom KeyBind")
+Section:NewKeybind("Toggle Ui", "Open/Close Ui", Enum.KeyCode.F, function()
+Library:ToggleUI()
+end)
